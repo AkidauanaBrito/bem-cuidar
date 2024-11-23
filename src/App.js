@@ -38,8 +38,23 @@ function App() {
     console.log(err);
   }
  }
+
+ const getCuidadores = async (cuidadorId) => {
+  try{
+
+   const response = await api.get(`/api/v1/cuidadores`);
+   
+   const cuidadores = response.data;
+   console.log(cuidadores)
+
+  }catch(err){
+    console.log(err);
+  }
+ }
+
  useEffect(()=>{
   getPacientes();
+  getCuidadores();
  },[])
 
   return (
