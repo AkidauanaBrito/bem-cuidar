@@ -3,7 +3,6 @@ import api from '../../api/axiosConfig';
 import { Container, Row, Col, Button, Card, ListGroup, ToggleButton, Table, Modal } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import PacienteForm from "../paciente/PacienteForm";
-import axios from "axios";
 
 import React from "react";
 
