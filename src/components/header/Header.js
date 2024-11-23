@@ -10,8 +10,8 @@ const Header = () => {
     return (
         <Navbar bg="light" data-bs-theme="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand jref="/" style={{"color" : "#008EDA"}}>
-                    <FontAwesomeIcon icon={faUserDoctor}/>Bem Cuidar
+                <Navbar.Brand as={Link} to="/" style={{"color" : "#008EDA"}}>
+                    <FontAwesomeIcon icon={faUserDoctor} /> Bem Cuidar
                 </Navbar.Brand>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto">
@@ -21,7 +21,12 @@ const Header = () => {
                     </Nav>
 
                     <div className="d-flex">
-                        <Button variant="outline-info" className="me-2">Login</Button>
+                        {/* Alteração aqui para o Link */}
+                        <Link to="/login">
+                            <Button variant="outline-info" className="me-2">
+                                Login
+                            </Button>
+                        </Link>
                     </div>
                 </Navbar.Collapse>
             </Container>
