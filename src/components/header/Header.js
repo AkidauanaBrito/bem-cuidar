@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ isAuthenticated, setIsAuthenticated }) => {
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+    };
+
     return (
         <Navbar bg="light" expand="lg" className="shadow-sm">
             <Container fluid>
                 <Navbar.Brand as={Link} to="/" style={{ color: "#008EDA", fontWeight: 'bold' }}>
                     <FontAwesomeIcon icon={faUserDoctor} /> Bem Cuidar
                 </Navbar.Brand>
-                {/* Botão responsivo para o menu */}
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0" navbarScroll>
@@ -20,12 +23,17 @@ const Header = () => {
                     </Nav>
 
                     <div className="d-flex">
-                        {/* Botão de login ajustado */}
-                        <Link to="/login">
-                            <Button variant="outline-info" className="me-2">
-                                Login
+                        {isAuthenticated ? (
+                            <Button variant="outline-info" onClick={handleLogout}>
+                                Logout
                             </Button>
-                        </Link>
+                        ) : (
+                            <Link to="/login">
+                                <Button variant="outline-info" className="me-2">
+                                    Login
+                                </Button>
+                            </Link>
+                        )}
                     </div>
                 </Navbar.Collapse>
             </Container>

@@ -135,7 +135,6 @@ const Pacientes = () => {
                 </Col>
             </Row>
 
-            {/* Modal para cadastrar novo paciente */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Cadastrar Novo Paciente</Modal.Title>

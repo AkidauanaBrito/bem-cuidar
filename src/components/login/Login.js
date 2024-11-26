@@ -1,33 +1,31 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
 
+        // Login fake
         if (email === "akidauana@bemcuidar.com" && password === "123456") {
+            setIsAuthenticated(true);
             toast.success("Login realizado com sucesso!", {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
             });
+            navigate("/Cuidadores");
         } else {
             toast.error("Email ou senha incorretos.", {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
             });
         }
     };
@@ -83,12 +81,6 @@ const Login = () => {
                             Entrar
                         </Button>
                     </Form>
-
-                    <div className="mt-3">
-                        <Link to="/cadastro">
-                            <Button variant="link">Não tem uma conta? Cadastre-se</Button>
-                        </Link>
-                    </div>
                 </Col>
             </Row>
         </Container>
