@@ -1,27 +1,26 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUserDoctor, faVideoSlash } from "@fortawesome/free-solid-svg-icons"
-import  Button  from "react-bootstrap/Button"
-import  Container  from "react-bootstrap/Container"
-import  Navbar  from "react-bootstrap/Navbar"
-import  Nav  from "react-bootstrap/Nav"
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserDoctor } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     return (
-        <Navbar bg="light" data-bs-theme="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="shadow-sm">
             <Container fluid>
-                <Navbar.Brand as={Link} to="/" style={{"color" : "#008EDA"}}>
+                <Navbar.Brand as={Link} to="/" style={{ color: "#008EDA", fontWeight: 'bold' }}>
                     <FontAwesomeIcon icon={faUserDoctor} /> Bem Cuidar
                 </Navbar.Brand>
+                {/* Botão responsivo para o menu */}
+                <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto my-2 my-lg-0" navbarScroll>
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/Cuidadores">Cuidador</Nav.Link>
-                        <Nav.Link as={Link} to="/Pacientes">Paciente</Nav.Link>
+                        <Nav.Link as={Link} to="/Cuidadores">Cuidadores</Nav.Link>
+                        <Nav.Link as={Link} to="/Pacientes">Pacientes</Nav.Link>
                     </Nav>
 
                     <div className="d-flex">
-                        {/* Alteração aqui para o Link */}
+                        {/* Botão de login ajustado */}
                         <Link to="/login">
                             <Button variant="outline-info" className="me-2">
                                 Login
